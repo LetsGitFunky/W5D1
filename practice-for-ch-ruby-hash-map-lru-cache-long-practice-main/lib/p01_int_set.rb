@@ -1,14 +1,21 @@
 class MaxIntSet
+  attr_reader :max
+
   def initialize(max)
+    @set = Array.new(max+1, false)
+    @max = max
   end
 
   def insert(num)
+
   end
 
   def remove(num)
   end
 
   def include?(num)
+    # num.between?(0..max) &&
+    @set[num] == true
   end
 
   private
