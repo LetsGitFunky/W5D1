@@ -14,6 +14,7 @@ require "byebug"
   end
 
   def remove(num)
+    @store[num] = false
   end
 
   def include?(num)
@@ -35,12 +36,15 @@ class IntSet
   end
 
   def insert(num)
+    @store[num % 20].push(num)
   end
 
   def remove(num)
+    @store[num % 20].delete(num)
   end
 
   def include?(num)
+    @store[num % 20].include?(num)
   end
 
   private
