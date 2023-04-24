@@ -1,12 +1,15 @@
 class MaxIntSet
-  attr_reader :max
-
+  attr_reader :max, :store
+require "byebug"
   def initialize(max)
-    @set = Array.new(max+1, false)
+    @store = Array.new(max+1, false)
     @max = max
   end
 
   def insert(num)
+    raise "Out of bounds" if !num.between?(0, @max)
+    @store[num] = true
+
 
   end
 
@@ -14,17 +17,16 @@ class MaxIntSet
   end
 
   def include?(num)
-    # num.between?(0..max) &&
-    @set[num] == true
+    @store[num] == true
   end
 
   private
 
-  def is_valid?(num)
-  end
+  # def is_valid?(num)
+  # end
 
-  def validate!(num)
-  end
+  # def validate!(num)
+  # end
 end
 
 class IntSet
